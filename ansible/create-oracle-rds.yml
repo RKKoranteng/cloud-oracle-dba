@@ -1,0 +1,24 @@
+# Author: Richard K. (rkkoranteng.com)
+# Desc: example yml for creating Oracle RDS instance
+# Note: Check out https://docs.ansible.com/ansible/2.3/rds_module.html
+#       for full Ansible RDS parameters.
+
+- name: create-oracle-rds
+  hosts: localhost
+  connection: local
+  gather_facts : false
+
+  tasks:
+    - name: provision oracle rds intance
+      rds:
+        command: create
+        region: us-east-1
+        instance_name: orards
+        db_engine: oracle-se2
+        size: "10"
+        instance_type: db.m5.large
+        license_model: bring-your-own-license
+        username: master
+        password: "welcome1"
+        tags:
+          environment: test
