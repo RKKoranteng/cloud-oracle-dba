@@ -1,0 +1,16 @@
+# Author: Richard K. (rkkoranteng.com)
+# Desc: example yml for deleting Oracle RDS instance
+# Note: Check out https://docs.ansible.com/ansible/2.3/rds_module.html
+#       for full Ansible RDS parameters.
+
+- name: delete-oracle-rds
+  hosts: localhost
+  connection: local
+  gather_facts : false
+
+  tasks:
+    - name: terminate oracle rds intance
+      rds:
+        command: delete
+        region: us-east-1
+        instance_name: orards
