@@ -1,0 +1,26 @@
+# Author: Richard K. (rkkoranteng.com)
+# Desc: example playbook for provisioning EC2 using variables
+
+- name: create-ec2
+  hosts: localhost
+  connection: local
+  gather_facts : false
+
+  tasks:
+    - name: Include vars
+      include_vars:
+        file: 'vars/create-ec2.yml'
+
+    - name: Launch Instance
+      ec2:
+         key_name: "{{ keypair }}"
+         group_id: "{{ security_group }}"
+         instance_type: "{{ instance_type }}"
+         image: "{{ ami }}"
+         wait: true
+         region: "{{ region }}"
+         instance_tags:
+             Name: "{{ instance_name }}"
+         vpc_subnet_id: "{{ subnet_id }}"
+         assign_public_ip: yes
+         volumes: "{{ ebs_vol }}"
