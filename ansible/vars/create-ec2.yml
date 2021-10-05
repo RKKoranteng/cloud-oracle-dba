@@ -1,0 +1,21 @@
+# Author: Richard K. (rkkoranteng.com)
+# Desc: example Ansible variables for provisioning EC2 using variables
+
+keypair: myEC2Key
+instance_type: t2.micro
+instance_name: oracle-db21c
+security_group: sg-4e39f3c0391dd2696
+subnet_id: subnet-a6d48e89
+ami: ami-0b0af3577fe5e3532
+region: us-east-1
+ebs_vol:
+  - device_name: /dev/xvda
+    volume_type: gp2
+    volume_size: 8
+    delete_on_termination: yes
+    Name: root_vol
+  - device_name: /dev/sdh
+    volume_type: gp2
+    volume_size: 10
+    delete_on_termination: yes
+    Name: soft_vol
