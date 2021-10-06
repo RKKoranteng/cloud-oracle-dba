@@ -3,13 +3,13 @@
 # Note: Check out https://docs.ansible.com/ansible/2.3/rds_module.html
 #       for full Ansible RDS parameters.
 
-- name: create-oracle-rds
+- name: Connect
   hosts: localhost
   connection: local
   gather_facts : false
 
   tasks:
-    - name: provision oracle rds intance
+    - name: Provision Oracle RDS
       rds:
         command: create
         region: us-east-1
