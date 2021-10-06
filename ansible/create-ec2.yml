@@ -1,13 +1,13 @@
 # Author: Richard K. (rkkoranteng.com)
 # Desc: example playbook for provisioning EC2 using variables
 
-- name: create-ec2
+- name: Connect
   hosts: localhost
   connection: local
   gather_facts : false
 
   tasks:
-    - name: Include vars
+    - name: Read Variables
       include_vars:
         file: 'vars/create-ec2.yml'
 
